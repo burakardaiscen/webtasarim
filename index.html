@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastEat - Food Delivery</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #ffefef;
+        }
+
+        /* Header styles */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #ffefef;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 28px;
+            color: #333;
+        }
+
+        .logo span {
+            color: #ff6b35;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .login {
+            margin-right: 15px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .signup {
+            background-color: #ffa05a;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            background-color: #f5e6d8;
+            min-height: 400px;
+        }
+
+        .hero-content {
+            max-width: 50%;
+        }
+
+        .hero-content h1 {
+            font-size: 46px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 em {
+            font-style: normal;
+        }
+
+        .hero-content p {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .download-btn {
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #333;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .start-btn {
+            background-color: #ffa05a;
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .hero-image {
+            width: 45%;
+            height: auto;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Restaurant section */
+        .restaurants {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .restaurants h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .restaurants h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .restaurant-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .restaurant-card {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            text-align: left;
+        }
+
+        .restaurant-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .restaurant-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .restaurant-info {
+            padding: 20px;
+        }
+
+        .restaurant-info h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .restaurant-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .read-more {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .read-more svg {
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            nav ul {
+                margin: 20px 0;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .hero-image {
+                width: 80%;
+            }
+
+            .restaurant-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">fast<span>eat</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Ristoranti</a></li>
+                <li><a href="#">Contatti</a></li>
+                <li><a href="#">Dettali su di noi</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="#" class="login">Log in</a>
+            <a href="#" class="signup">Sign up</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Scegli quello piu vicino a <em>te</em>.</h1>
+            <p>Scopri tutti i ristoranti e le prelibatezze da gustare dove e quando vuoi.</p>
+            <div class="hero-buttons">
+                <a href="#" class="download-btn">Download App</a>
+                <a href="#" class="start-btn">Get Started →</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" alt="Healthy food bowl with rice, avocado, radish, and salmon">
+        </div>
+    </section>
+
+    <section class="restaurants">
+        <h3>I NOSTRI RISTORANTI</h3>
+        <h2>Ecco la lista dei nostri ristoranti</h2>
+        <div class="restaurant-grid">
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c" alt="Sushi plate">
+                </div>
+                <div class="restaurant-info">
+                    <h4>Sushi & Poke</h4>
+                    <p>Piatti tradizionali giapponesi e poke freschi direttamente a casa tua. Il sushi è il piatto giapponese per eccellenza...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1534939561126-855b8675edd7" alt="Thai food">
+                </div>
+                <div class="restaurant-info">
+                    <h4>ThaiDinner</h4>
+                    <p>Ristorante con cucina Thailandese nel centro della tua città. Direttamente da Bangkok, lo chef Somvon...</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141" alt="Pasta dish">
+                </div>
+                <div class="restaurant-info">
+                    <h4>Osteria "La Locanda"</h4>
+                    <p>Voglia di spaghetti alla matriciana? Una bella carbonara con uova biologiche? I classici italiani ora a casa tua.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Simple JavaScript to handle navigation and button clicks
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add active class to current navigation item
+            const navItems = document.querySelectorAll('nav ul li a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Handle button hover effects
+            const buttons = document.querySelectorAll('.download-btn, .start-btn, .signup');
+            buttons.forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.opacity = '0.9';
+                });
+                button.addEventListener('mouseleave', function() {
+                    this.style.opacity = '1';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
